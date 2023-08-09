@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
 
 {% block title %}
 New user sign up
@@ -7,10 +9,10 @@ New user sign up
 {% block content %}
 <div class="container">
 	<h2> Create New User </h2>
-	<form method="POST">
+	<form action="." method="POST">
 		{% csrf_token %}
-		{{ form.as_p }}
-		<button type="submit">Create User</button>
+		{% bootstrap_form form layout='inline'%}
+		{% bootstrap_button "Create User" button_type="submit" button_class="btn-primary" %}		
 	</form>
 </div>
 
