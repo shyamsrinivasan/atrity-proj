@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}
+New user sign up
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<h2> Create New User </h2>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Create User</button>
+	</form>
+</div>
+
+{% endblock %}
