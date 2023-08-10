@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+{% block title %}
+User Login
+{% endblock %}
+
+{% block css %}
+	{% bootstrap_css %}
+	{% bootstrap_javascript %}
+	{% bootstrap_messages %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<h2 class='primary' text-color="blue"> Login </h2>
+	<form action="{% url 'user-login' %}" method="POST">
+		{% csrf_token %}		
+		{% bootstrap_form form %}
+		{% bootstrap_button "Login" button_type="submit" button_class="btn-primary" %}		
+	</form>
+</div>
+
+{% endblock %}

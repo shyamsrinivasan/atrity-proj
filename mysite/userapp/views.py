@@ -1,5 +1,6 @@
 from django.shortcuts import render
-# from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views import generic
 from django.http import HttpResponseRedirect, JsonResponse
@@ -11,7 +12,7 @@ from .forms import NewUserForm
 class SignupView(generic.CreateView):
     """view class for user sign up"""
     form_class = NewUserForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('user-login')
     template_name = 'userapp/registration/signup.html'
 
     def __init__(self, *args, **kwargs):
@@ -28,5 +29,4 @@ class SignupView(generic.CreateView):
         # else:
         #     return JsonResponse({'pk': self.object.pk})
         return HttpResponseRedirect(self.get_success_url())
-
 
