@@ -1,12 +1,15 @@
 {% extends "base.html" %}
-{% load bootstrap5 %}
-{% bootstrap_css %}
 
 {% block title %}
 Homepage
 {% endblock %}
 
 {% block content %}
+<div class="container card">
+	<a href="{% url 'home' %}" class="btn-primary">Home</a>
+	<a href="{% url 'user-sign-up' %}">Sign-Up</a>	
+	<a href="{% url 'user-login' %}">Login</a>
+</div>
 <div class="card">
 	This is the home page
 </div>
